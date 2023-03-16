@@ -3,6 +3,7 @@ using Movies.Api.Mapping;
 using Movies.Application.Models;
 using Movies.Application.Repositories;
 using Movies.Contracts.Requests;
+using Movies.Contracts.Responses;
 
 namespace Movies.Api.Controllers
 {
@@ -24,10 +25,25 @@ namespace Movies.Api.Controllers
             return Created($"{ApiEndpoints.Movies.Create}/{movie.Id}", movie);
         }
 
-        [HttpGet(ApiEndpoints.Movies.Get)]
+        [HttpGet(ApiEndpoints.Movies.GetAll)]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await _movieRepository.GetAllAsync());
+            var movies = await _movieRepository.GetAllAsync();
+            var response = movies.MapToResponse();
+            return Ok(response);
+        }
+
+        [HttpGet(ApiEndpoints.Movies.Get)]
+        public async Task<IActionResult> GetById([FromRoute]Guid id)
+        {
+            var movie = await _movieRepository.GetByIdAsync(id);
+            if (movie is null)
+            {
+                return NotFound();
+            }
+
+            var response = movie.MapToResponse();
+            return Ok(response);
         }
     }
 }
