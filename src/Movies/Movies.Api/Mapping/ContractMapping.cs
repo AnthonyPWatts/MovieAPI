@@ -1,6 +1,18 @@
-﻿namespace Movies.Api.Mapping
+﻿using Movies.Application.Models;
+using Movies.Contracts.Requests;
+
+namespace Movies.Api.Mapping;
+
+public static class ContractMapping
 {
-    public class ContractMapping
+    public static Movie MapToMovie (this CreateMovieRequest request)
     {
+        return new Movie()
+        {
+            Id = Guid.NewGuid(),
+            Title = request.Title,
+            YearOfRelease = request.YearOfRelease,
+            Genres = request.Genres.ToList()
+        };
     }
 }
