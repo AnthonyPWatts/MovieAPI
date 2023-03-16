@@ -22,7 +22,7 @@ namespace Movies.Api.Controllers
         {
             var movie = request.MapToMovie();
             await _movieRepository.CreateAsync(movie);
-            return Created($"{ApiEndpoints.Movies.Create}/{movie.Id}", movie);
+            return CreatedAtAction(nameof(Get), new { id = movie.Id }, movie);
         }
 
         [HttpGet(ApiEndpoints.Movies.GetAll)]
@@ -34,7 +34,7 @@ namespace Movies.Api.Controllers
         }
 
         [HttpGet(ApiEndpoints.Movies.Get)]
-        public async Task<IActionResult> GetById([FromRoute]Guid id)
+        public async Task<IActionResult> Get([FromRoute]Guid id)
         {
             var movie = await _movieRepository.GetByIdAsync(id);
             if (movie is null)
