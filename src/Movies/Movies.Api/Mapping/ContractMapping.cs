@@ -1,6 +1,7 @@
 ﻿using Movies.Application.Models;
 using Movies.Contracts.Requests;
 using Movies.Contracts.Responses;
+using static Movies.Api.ApiEndpoints;
 
 namespace Movies.Api.Mapping;
 
@@ -33,6 +34,17 @@ public static class ContractMapping
         return new MoviesResponse
         {
             Items = movies.Select(MapToResponse)
+        };
+    }
+
+    public static Movie MapToMovie(this UpdateMovieRequest request, Guid id)
+    {
+        return new Movie
+        {
+            Id = id,
+            Title = request.Title,
+            YearOfRelease = request.YearOfRelease,
+            Genres = request.Genres.ToList()
         };
     }
 }
