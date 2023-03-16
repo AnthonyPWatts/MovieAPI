@@ -23,5 +23,11 @@ namespace Movies.Api.Controllers
             await _movieRepository.CreateAsync(movie);
             return Created($"{ApiEndpoints.Movies.Create}/{movie.Id}", movie);
         }
+
+        [HttpGet(ApiEndpoints.Movies.Get)]
+        public async Task<IActionResult> GetAll()
+        {
+            return Ok(await _movieRepository.GetAllAsync());
+        }
     }
 }
