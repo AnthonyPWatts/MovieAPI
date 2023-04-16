@@ -1,7 +1,6 @@
 ﻿using Movies.Application.Models;
 using Movies.Contracts.Requests;
 using Movies.Contracts.Responses;
-using static Movies.Api.ApiEndpoints;
 
 namespace Movies.Api.Mapping;
 
