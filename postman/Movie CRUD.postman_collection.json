@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "29fbbf0e-a1d4-4426-bab3-35a29273caed",
+		"name": "Movie CRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3540154"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Star Wars: A New Hope\",\r\n  \"yearOfRelease\": 1977,\r\n  \"genres\": [\r\n    \"Sci Fi\",\r\n    \"Space\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5030/api/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5030",
+					"path": [
+						"api",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ProjectBaseURI}}{{MoviesBase}}",
+					"host": [
+						"{{ProjectBaseURI}}{{MoviesBase}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Seeded Movie By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ProjectBaseURI}}{{MoviesBase}}",
+					"host": [
+						"{{ProjectBaseURI}}{{MoviesBase}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Seeded Movie By ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{ProjectBaseURI}}{{MoviesBase}}{{SeededMovieId}}",
+					"host": [
+						"{{ProjectBaseURI}}{{MoviesBase}}{{SeededMovieId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Seeded Movie By ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"31549f9d-ba98-4ecf-a8e4-606c0eef04c4\",\r\n    \"title\": \"The Lord of the Rings: The Fellowship of the Ring\",\r\n    \"slug\": \"the-lord-of-the-rings-the-fellowship-of-the-ring-2001\",\r\n    \"yearOfRelease\": 2001,\r\n    \"genres\": [\r\n        \"Adventure\",\r\n        \"Drama\",\r\n        \"Fantasy\",\r\n        \"Second breakfasts\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ProjectBaseURI}}{{MoviesBase}}{{SeededMovieId}}",
+					"host": [
+						"{{ProjectBaseURI}}{{MoviesBase}}{{SeededMovieId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
