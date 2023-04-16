@@ -1,7 +1,6 @@
 ﻿using Movies.Application.Models;
 using Movies.Contracts.Requests;
 using Movies.Contracts.Responses;
-using static Movies.Api.ApiEndpoints;
 
 namespace Movies.Api.Mapping;
 
@@ -24,6 +23,7 @@ public static class ContractMapping
         {
             Id = movie.Id,
             Title = movie.Title,
+            Slug = movie.Slug,
             YearOfRelease = movie.YearOfRelease,
             Genres = movie.Genres.ToList()
         };

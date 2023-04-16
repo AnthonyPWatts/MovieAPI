@@ -1,0 +1,7 @@
+CREATE DATABASE Movies;
+CREATE TABLE Movies (
+    Id UNIQUEIDENTIFIER PRIMARY KEY,
+    Title VARCHAR(255),
+    Slug VARCHAR(255) UNIQUE,
+    YearOfRelease INT
+);
