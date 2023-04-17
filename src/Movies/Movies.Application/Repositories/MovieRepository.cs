@@ -5,7 +5,7 @@ using System.Data;
 
 namespace Movies.Application.Repositories;
 
-internal class MovieRepository : IMovieRepository
+public sealed class MovieRepository : IMovieRepository
 {
     private readonly IDbConnectionFactory _connectionFactory;
 
